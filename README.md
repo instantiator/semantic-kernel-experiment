@@ -1,6 +1,6 @@
 # semantic-kernel-experiment
 
-The [Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/whatissk) is a .NET SDK that simplifies a number of machine learning tasks:
+The [Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/whatissk) is a .NET SDK that simplifies a number of machine learning tasks.
 
 ![](https://learn.microsoft.com/en-us/semantic-kernel/media/fullview.png)
 
@@ -80,6 +80,12 @@ public class CharacterManipulationSkill
 NB. A skill can contain any combination of native or semantic functions.
 
 The code in `KernelSkillsExtensions.ImportAllSemanticSkills` and `KernelSkillsExtensions.ImportAllNativeSkills` will locate and import all skills defined in the solution.
+
+## `Microsoft.SemanticKernel` NuGet package
+
+NB. The `Microsoft.SemanticKernel` package is in preview right now, so you'll need to enable 'include prereleases' in your package selector to see it.
+
+![The NuGet package selector - it's showing the Microsoft.SemanticKernel package, and at the bottom of the window, the 'include prereleases' option is selected.](images/nuget-semantic-kernel.png)
 
 ## See also
 
