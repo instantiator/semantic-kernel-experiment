@@ -38,8 +38,8 @@ namespace SKE
         /// <returns>The configuration</returns>
         private static IConfigurationRoot RetrieveConfiguration()
         {
-            DotEnv.Load(Path.Combine(Directory.GetCurrentDirectory(), ".env"));
-            DotEnv.Load(Path.Combine(Directory.GetCurrentDirectory(), ".secret.env"));
+            DotEnv.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".env"));
+            DotEnv.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".secret.env"));
             return new ConfigurationBuilder()
                 .AddEnvironmentVariables()
                 .Build();

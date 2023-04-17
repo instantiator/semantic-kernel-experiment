@@ -20,9 +20,16 @@ namespace SKE
         /// <param name="skillsDirectory">Directory to scan</param>
         public static void ImportAllSemanticSkills(this IKernel kernel, string skillsDirectory)
         {
-            Directory.EnumerateDirectories(skillsDirectory)
+            // the skills directory should be relative to the directory that the binary is running from
+            var scanDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, skillsDirectory);
+            Console.WriteLine($"Scanning: {Path.GetFullPath(scanDirectory)}");
+            Directory.EnumerateDirectories(scanDirectory)
                 .Select(d => Path.GetFileName(d)).ToList()
-                .ForEach(skill => kernel.ImportSemanticSkillFromDirectory(skillsDirectory, skill));
+                .ForEach(skill =>
+                {
+                    Console.WriteLine($"Importing semantic skill: {skill}");
+                    kernel.ImportSemanticSkillFromDirectory(scanDirectory, skill);
+                });
         }
 
         /// <summary>
@@ -39,7 +46,7 @@ namespace SKE
 
                 if (isSkill)
                 {
-                    Console.WriteLine($"Importing {type.FullName!}");
+                    Console.WriteLine($"Importing native skill: {type.FullName!}");
                     var skillObject = Activator.CreateInstance(type);
                     kernel.ImportSkill(skillObject!, type.Name!);
                 }
