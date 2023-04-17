@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SemanticKernel" Version="0.11.146.1-preview" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Skills\" />
+    <None Remove="Skills\SlangSkill\" />
+    <None Remove="Skills\SlangSkill\RhymingSlangFunction\" />
+    <None Remove="Skills\MeaningSkill\" />
+    <None Remove="Skills\MeaningSkill\ReverseMeaningFunction\" />
+    <None Remove="Skills\CharacterManipulationSkill\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update=".env">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update=".secret.env">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Skills\SlangSkill\RhymingSlangFunction\config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Skills\SlangSkill\RhymingSlangFunction\skprompt.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Skills\MeaningSkill\ReverseMeaningFunction\config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Skills\MeaningSkill\ReverseMeaningFunction\skprompt.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Skills\" />
+    <Folder Include="Skills\SlangSkill\" />
+    <Folder Include="Skills\SlangSkill\RhymingSlangFunction\" />
+    <Folder Include="Skills\MeaningSkill\" />
+    <Folder Include="Skills\MeaningSkill\ReverseMeaningFunction\" />
+    <Folder Include="Skills\CharacterManipulationSkill\" />
+  </ItemGroup>
+</Project>

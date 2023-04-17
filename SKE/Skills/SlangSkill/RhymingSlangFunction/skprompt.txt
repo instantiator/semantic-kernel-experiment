@@ -1,0 +1,5 @@
+﻿Rewrite the following, replacing as much of the text as possible with the equivalent in cockney rhyming slang.
+
+---Begin Text---
+{{$input}}
+---End Text---

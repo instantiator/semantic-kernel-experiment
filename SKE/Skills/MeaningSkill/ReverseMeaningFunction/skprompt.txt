@@ -1,0 +1,5 @@
+﻿Reverse the meaning of the following, giving the opposite effect to the original intention.
+
+---Begin Text---
+{{$input}}
+---End Text---
